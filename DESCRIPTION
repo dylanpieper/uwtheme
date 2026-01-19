@@ -2,14 +2,14 @@ Package: uwtheme
 Title: UW-Madison Theme for Shiny Applications
 Version: 0.1.0
 Authors@R:
-    person("Dylan", "Pieper", , "example@example.com", role = c("aut", "cre"))
+    person("Dylan", "Pieper", , "dylanpieper@gmail.com", role = c("aut", "cre"))
 Description: Provides a UW-Madison branded theme for Shiny applications
     using bslib. Includes Badger Red accents, Red Hat typography, and
     logo branding.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports:
     base64enc,
     bslib,

@@ -1,0 +1,315 @@
+// UW-Madison Theme Variables
+$badger-red: #c5050c;
+$uw-black: #282728;
+$uw-white: #ffffff;
+$uw-gray-light: #f5f5f5;
+$uw-gray-medium: #999;
+$uw-gray-dark: #666;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Typography
+$font-size-base: 1rem;
+$font-size-lg: 1.1rem;
+$font-size-xl: 1.4rem;
+$line-height-base: 1.7;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// Navbar Styling
+.navbar {
+  padding-top: $spacing-md;
+  padding-bottom: $spacing-md;
+  box-shadow: $shadow-sm;
+  background-color: $uw-white;
+
+  .navbar-brand {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $badger-red !important;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      font-size: $font-size-lg;
+      font-weight: 600;
+      color: $uw-black !important;
+      padding: $spacing-xs $spacing-sm !important;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $badger-red !important;
+        text-decoration: none;
+      }
+
+      &.active {
+        color: $badger-red !important;
+        border-bottom: 3px solid $badger-red;
+      }
+    }
+  }
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #000;
+}
+
+h1 {
+  margin-bottom: $spacing-md;
+  font-size: 2.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-sm;
+  font-size: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+h3 {
+  margin-top: $spacing-md;
+  margin-bottom: $spacing-xs;
+  font-size: 1.5rem;
+}
+
+h4 {
+  margin-top: $spacing-md;
+  margin-bottom: $spacing-xs;
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: $font-size-lg;
+  line-height: $line-height-base;
+  color: $uw-black;
+  margin-bottom: $spacing-sm;
+}
+
+// Links
+a {
+  color: $badger-red;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol {
+  font-size: $font-size-lg;
+  line-height: $line-height-base;
+  color: $uw-black;
+  padding-left: $spacing-lg;
+
+  li {
+    margin-bottom: $spacing-xs;
+  }
+}
+
+// Buttons
+.btn {
+  font-weight: 600;
+  padding: $spacing-xs $spacing-md;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+
+  &.btn-primary {
+    background-color: $badger-red;
+    border-color: $badger-red;
+
+    &:hover, &:focus {
+      background-color: darken($badger-red, 10%);
+      border-color: darken($badger-red, 10%);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: $uw-gray-dark;
+    border-color: $uw-gray-dark;
+
+    &:hover, &:focus {
+      background-color: darken($uw-gray-dark, 10%);
+      border-color: darken($uw-gray-dark, 10%);
+    }
+  }
+
+  &.btn-outline-primary {
+    color: $badger-red;
+    border-color: $badger-red;
+
+    &:hover {
+      background-color: $badger-red;
+      color: $uw-white;
+    }
+  }
+}
+
+// Cards
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  box-shadow: $shadow-sm;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+
+  .card-header {
+    background-color: $uw-gray-light;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 700;
+    color: $uw-black;
+  }
+
+  .card-body {
+    padding: $spacing-md;
+  }
+}
+
+// Tables
+.table {
+  font-size: $font-size-base;
+
+  thead {
+    background-color: $uw-gray-light;
+    font-weight: 600;
+
+    th {
+      border-bottom: 2px solid $badger-red;
+      padding: $spacing-sm;
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: rgba($badger-red, 0.05);
+      }
+
+      td {
+        padding: $spacing-xs $spacing-sm;
+      }
+    }
+  }
+}
+
+// Forms
+.form-control, .form-select {
+  border-radius: 4px;
+  padding: $spacing-xs $spacing-sm;
+
+  &:focus {
+    border-color: $badger-red;
+    box-shadow: 0 0 0 0.2rem rgba($badger-red, 0.25);
+  }
+}
+
+.form-label {
+  font-weight: 600;
+  color: $uw-black;
+  margin-bottom: $spacing-xs;
+}
+
+// Alerts
+.alert {
+  border-radius: 4px;
+  padding: $spacing-sm $spacing-md;
+
+  &.alert-primary {
+    background-color: rgba($badger-red, 0.1);
+    border-color: rgba($badger-red, 0.3);
+    color: darken($badger-red, 10%);
+  }
+}
+
+// Footer
+footer {
+  background-color: $uw-black;
+  color: $uw-white;
+  padding: $spacing-xl $spacing-lg;
+  margin-top: $spacing-xl;
+
+  p {
+    color: $uw-gray-medium;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  a {
+    color: $uw-white;
+
+    &:hover {
+      color: $badger-red;
+    }
+  }
+}
+
+// Utility Classes
+.text-badger-red {
+  color: $badger-red !important;
+}
+
+.bg-badger-red {
+  background-color: $badger-red !important;
+}
+
+.bg-uw-gray {
+  background-color: $uw-gray-light !important;
+}
+
+// Responsive Containers
+.container-uw {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg $spacing-sm;
+  }
+}
+
+// Accessibility
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+  outline: 2px solid $badger-red;
+  outline-offset: 2px;
+}
+
+// Print Styles
+@media print {
+  .navbar,
+  footer {
+    display: none;
+  }
+
+  a {
+    color: $uw-black;
+    text-decoration: underline;
+  }
+}

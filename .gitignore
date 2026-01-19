@@ -1,0 +1,15 @@
+# RStudio files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# macOS
+.DS_Store
+
+# Local environment files
+.Renviron
+.Rprofile
+
+# LLM files
+.claude/

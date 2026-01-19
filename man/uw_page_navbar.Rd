@@ -4,7 +4,7 @@
 \alias{uw_page_navbar}
 \title{Create UW-styled page navbar}
 \usage{
-uw_page_navbar(..., title = NULL, theme = NULL, footer = NULL)
+uw_page_navbar(..., title = NULL, theme = NULL, footer = NULL, favicon = TRUE)
 }
 \arguments{
 \item{...}{Navigation panels to include}
@@ -13,19 +13,29 @@ uw_page_navbar(..., title = NULL, theme = NULL, footer = NULL)
 
 \item{theme}{bslib theme to use (defaults to uw_theme())}
 
-\item{footer}{Footer element (if NULL, uses uw_footer())}
+\item{footer}{Footer element (if NULL, uses uw_footer(); set to FALSE to disable)}
+
+\item{favicon}{Whether to include UW favicon (default: TRUE)}
 }
 \value{
-A page_navbar element
+A page_navbar element with UW-Madison branding
 }
 \description{
-Create UW-styled page navbar
+A wrapper around \code{bslib::page_navbar()} that applies UW-Madison
+branding including theme, navbar title with logo, footer, and favicon.
+All defaults can be overridden or disabled.
 }
 \examples{
 if (interactive()) {
   library(shiny)
   uw_page_navbar(
     uw_nav_panel("Home", h1("Welcome"))
+  )
+
+  # Disable favicon
+  uw_page_navbar(
+    uw_nav_panel("Home", h1("Welcome")),
+    favicon = FALSE
   )
 }
 }

@@ -4,8 +4,8 @@ Version: 0.1.0
 Authors@R:
     person("Dylan", "Pieper", , "dylanpieper@gmail.com", role = c("aut", "cre"))
 Description: Provides a UW-Madison branded theme for Shiny applications
-    using bslib. Includes Badger Red accents, Red Hat typography, and
-    logo branding.
+    using bslib. Includes the Badger Red color, Red Hat font, and
+    favicon and logo branding.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

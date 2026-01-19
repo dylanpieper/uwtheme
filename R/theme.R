@@ -1,4 +1,4 @@
-#' @importFrom shiny tags div p
+#' @importFrom shiny tags div p tagAppendChild addResourcePath
 #' @importFrom bslib bs_theme bs_add_rules font_google page_navbar nav_panel
 #' @importFrom sass sass_file
 #' @importFrom base64enc base64encode
@@ -142,13 +142,53 @@ uw_container <- function(..., max_width = "1200px", padding = "40px 20px") {
   )
 }
 
+#' Add UW-Madison favicon to Shiny UI
+#'
+#' Creates HTML head tags to include the UW-Madison favicon. This function
+#' is called automatically by \code{uw_page_navbar()} but can be used
+#' independently in custom page layouts.
+#'
+#' @return A \code{tags$head()} element containing favicon link tags
+#' @export
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'   ui <- fluidPage(
+#'     uw_favicon(),
+#'     h1("My UW App")
+#'   )
+#' }
+uw_favicon <- function() {
+  # Set up resource path for www directory
+  www_dir <- system.file("www", package = "uwtheme")
+
+  if (nzchar(www_dir)) {
+    shiny::addResourcePath("uwtheme-assets", www_dir)
+
+    shiny::tags$head(
+      shiny::tags$link(
+        rel = "icon",
+        type = "image/x-icon",
+        href = "uwtheme-assets/favicon.ico"
+      )
+    )
+  } else {
+    shiny::tags$head()
+  }
+}
+
 #' Create UW-styled page navbar
+#'
+#' A wrapper around \code{bslib::page_navbar()} that applies UW-Madison
+#' branding including theme, navbar title with logo, footer, and favicon.
+#' All defaults can be overridden or disabled.
 #'
 #' @param ... Navigation panels to include
 #' @param title Navbar title (if NULL, uses uw_navbar_title())
 #' @param theme bslib theme to use (defaults to uw_theme())
-#' @param footer Footer element (if NULL, uses uw_footer())
-#' @return A page_navbar element
+#' @param footer Footer element (if NULL, uses uw_footer(); set to FALSE to disable)
+#' @param favicon Whether to include UW favicon (default: TRUE)
+#' @return A page_navbar element with UW-Madison branding
 #' @export
 #' @examples
 #' if (interactive()) {
@@ -156,8 +196,14 @@ uw_container <- function(..., max_width = "1200px", padding = "40px 20px") {
 #'   uw_page_navbar(
 #'     uw_nav_panel("Home", h1("Welcome"))
 #'   )
+#'
+#'   # Disable favicon
+#'   uw_page_navbar(
+#'     uw_nav_panel("Home", h1("Welcome")),
+#'     favicon = FALSE
+#'   )
 #' }
-uw_page_navbar <- function(..., title = NULL, theme = NULL, footer = NULL) {
+uw_page_navbar <- function(..., title = NULL, theme = NULL, footer = NULL, favicon = TRUE) {
   if (is.null(title)) {
     title <- uw_navbar_title()
   }
@@ -170,12 +216,19 @@ uw_page_navbar <- function(..., title = NULL, theme = NULL, footer = NULL) {
     footer <- uw_footer()
   }
 
-  bslib::page_navbar(
+  page <- bslib::page_navbar(
     title = title,
     theme = theme,
     ...,
     footer = footer
   )
+
+  # Add favicon if requested
+  if (favicon) {
+    page <- shiny::tagAppendChild(page, uw_favicon())
+  }
+
+  page
 }
 
 #' Create a standard UW content panel

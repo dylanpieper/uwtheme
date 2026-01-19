@@ -1,6 +1,6 @@
 # uwtheme
 
-uwtheme provides a UW-Madison branded theme for Shiny applications using bslib. Includes Badger Red accents, Red Hat typography, and logo branding.
+uwtheme provides a UW-Madison branded theme for Shiny applications using bslib. Includes the Badger Red color, Red Hat font, and favicon and logo branding.
 
 ## Installation
 

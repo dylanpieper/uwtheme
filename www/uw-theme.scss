@@ -54,7 +54,6 @@ $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     // Responsive adjustments
     @media (max-width: 768px) {
-      font-size: $font-size-lg;
       padding-right: 15px !important;
 
       img {
@@ -64,8 +63,6 @@ $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     @media (max-width: 576px) {
-      font-size: $font-size-base;
-
       span {
         gap: 8px;
       }

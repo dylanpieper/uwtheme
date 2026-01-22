@@ -35,9 +35,45 @@ $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-weight: 700;
     color: $badger-red !important;
     transition: opacity 0.2s ease;
+    white-space: normal !important;
+    word-wrap: break-word;
+    max-width: 100%;
 
     &:hover {
       opacity: 0.8;
+    }
+
+    // Make the logo and title wrap on mobile
+    span {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+      font-size: $font-size-lg;
+      padding-right: 15px !important;
+
+      img {
+        height: 40px !important;
+        max-height: 40px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      font-size: $font-size-base;
+
+      span {
+        gap: 8px;
+      }
+
+      img {
+        height: 35px !important;
+        max-height: 35px;
+      }
     }
   }
 
